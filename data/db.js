@@ -5,8 +5,8 @@ const mysql = require("mysql2");
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "",
-  database: "db_blog"
+  password: "Carlomilanista4sempre#",
+  database: "db-blog"
 });
 
 // utilizzo la variabile creata precedentemente per instaurare la connessione
@@ -17,3 +17,5 @@ connection.connect((err) => {
     console.log("Connected to MySQL!");
   }
 });
+
+ module.exports = connection

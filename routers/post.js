@@ -1,17 +1,18 @@
 const express = require("express");
-const router = express.Router()
+const router = express.Router();
 
 // importo il controller
-const postController = require('../controllers/postController')
+const postController = require('../controllers/postController');
 
-// rotte crud per le pizze 
+// creo le rotte CRUD del progetto
 
-// rotta index
-router.get("/", postController.index)
+// rotta index: mostra tutti i post
+router.get("/", postController.index);
 
 // rotta dettaglio del singolo post
-router.get("/id" , postController.show)
+router.get("/:id", postController.show);  
 
-router.delete("/id" , postController.delete)
+// rotta cancellazione post
+router.delete("/:id", postController.destroy); 
 
-module.exports = router
+module.exports = router;
