@@ -19,7 +19,17 @@ const show = (req,res) => {
 
 // metodo delete del controller
 const destroy = (req,res) => {
-    console.log(`Cancellazione del post con id:${req.params.id}`)
+    
+// recupero l'id del post da cancellare
+    const id = req.params.id;
+
+// stabilisco la connessione per fare la query
+    connection.query("DELETE FROM posts WHERE id = ?", [id], (err) => {
+// controllo che err sia pieno
+        if(err) return res.status(500).json({error: "Database query failed: "+err});
+
+        res.sendStatus(204);
+    })
 }
 
 module.exports = {
